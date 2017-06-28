@@ -7,8 +7,8 @@
  * prepared by the `concat` task at `.tmp/public/concat/production.css`.
  *
  * Together with the `concat` task, this is the final step that minifies
- * all CSS files from `assets/styles/` (and potentially your LESS importer
- * file from `assets/styles/importer.less`)
+ * all CSS files from `assets/styles/` (and potentially your sass importer
+ * file from `assets/styles/importer.sass`)
  *
  * For usage docs see:
  *   https://github.com/gruntjs/grunt-contrib-cssmin

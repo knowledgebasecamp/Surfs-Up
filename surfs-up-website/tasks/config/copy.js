@@ -8,7 +8,7 @@
  * and also for further pre-processing by other Grunt tasks.
  *
  * #### Normal usage (`sails lift`)
- * Copies all directories and files (except CoffeeScript and LESS)
+ * Copies all directories and files (except CoffeeScript and sass)
  * from the `assets/` folder into the web root -- conventionally a
  * hidden directory located `.tmp/public`.
  *
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
       files: [{
         expand: true,
         cwd: './assets',
-        src: ['**/*.!(coffee|less)'],
+        src: ['**/*.!(coffee|sass)'],
         dest: '.tmp/public'
       }]
     },
