@@ -1,0 +1,17 @@
+.jumbotron{
+  background-image: url('/images/surfing-banner.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y:-20px;
+  height: 500px;
+  .container{
+    padding: 15px;
+    background-color: rgba(158, 158, 158, 0.37);
+    border-radius: 10px;
+  }
+}
+
+.price {
+    font-size: 140%;
+    color: #0e6b0e;
+}
