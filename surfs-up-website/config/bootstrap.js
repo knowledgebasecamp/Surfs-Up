@@ -13,5 +13,46 @@ module.exports.bootstrap = function(cb) {
 
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
-  cb();
+  Product.create(products).exec(function (err,addedProducts) {
+    if (err) {
+      console.log(err);
+    }
+    console.log(addedProducts);
+    cb();
+  });
 };
+
+var products = [
+  {
+    title: 'Sticky Bumps Stand Up Paddle Grip Wax',
+    description: 'Tacky Paddle Wax, Applies to handle and shaft of paddle Creates a secure bond between you and your paddle for better power transfer Prevents paddle twist,Dry grippy formula does not transfer to hands,Comes in White or Black,',
+    price: 5.99,
+    salePrice: null,
+    thumbNailImg: 'sticky-wax-paddle.png',
+    allImages: null,
+  },
+  {
+    title:"California Board Company 8' Surfboard",
+    description: "High Density EPS, 100-Percent Waterproof core, Molded in laminated wood stringers, Tri-fin system, HD Polethylene slick bottom",
+    price: 249.99,
+    salePrice: null,
+    thumbNailImg: 'board-wood.png',
+    allImages: null,
+  },
+  {
+    title: 'Sticky Bumps Cool/cold Wax Single Bar',
+    description: 'fresh from the factory, original formula, cool-cold formula for water below 68 degrees, made in the USA',
+    price: 3.99,
+    salePrice: null,
+    thumbNailImg: 'sticky-wax.png',
+    allImages: null,
+  }
+  // {
+  //   title:,
+  //   description: ,
+  //   price: ,
+  //   salePrice: ,
+  //   thumbNailImg: ,
+  //   allImages: ,
+  // },
+];
