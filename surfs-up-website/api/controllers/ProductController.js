@@ -13,6 +13,9 @@ module.exports = {
 				if (err) {
 					console.log(err);
 				}
+				if (!product) {
+					return res.notFound();
+				}
 
 				return res.view('product',{product:product});
 		});
