@@ -25,6 +25,9 @@ module.exports = {
     },
     allImages:{
       type: 'array'
+    },
+    category:{
+      type: 'string'
     }
   }
 };

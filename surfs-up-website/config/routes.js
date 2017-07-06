@@ -33,7 +33,8 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': 'HomeController.index',
-  '/product/:product_id': 'ProductController.details'
+  '/product/:product_id': 'ProductController.details',
+  '/category/:category_name': 'CategoryController.index'
 
 
   /***************************************************************************
