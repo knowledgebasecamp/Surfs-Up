@@ -1,7 +1,7 @@
 <div class="container product-list-container">
   <!-- Example row of columns -->
 
-  <h1>Category: <%= categoryName %></h1>
+  <h1><%= pageHeading %></h1>
   <br>
   <div class="row">
     <% if(noResults){ %>
@@ -21,7 +21,7 @@
           <div >
             <span class="price sale">
               Sale Price:
-              $<%=product.price %>
+              $<%=product.salePrice %>
             </span>
           </div>
         <% }else{ %>

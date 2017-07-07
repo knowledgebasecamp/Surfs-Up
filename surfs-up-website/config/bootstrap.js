@@ -46,7 +46,8 @@ var products = [
     title: 'Sticky Bumps Cool/cold Wax Single Bar',
     description: 'fresh from the factory, original formula, cool-cold formula for water below 68 degrees, made in the USA',
     price: 3.99,
-    salePrice: null,
+    salePrice: 1.99,
+    onSale: true,
     thumbNailImg: 'sticky-wax.png',
     allImages: null,
     category: 'Wax'

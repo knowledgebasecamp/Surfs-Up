@@ -17,7 +17,7 @@ module.exports = {
 			if (products.length < 1) {
 				noResults = true;
 			}
-			return res.view('category',{products:products,categoryName:categoryName,noResults:noResults});
+			return res.view('products',{products:products,pageHeading:"Category: " + categoryName,noResults:noResults});
 		});
 
 

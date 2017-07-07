@@ -20,5 +20,18 @@ module.exports = {
 				return res.view('product',{product:product});
 		});
 
+	},
+	'onSale':function (req,res) {
+		Product.find({onSale:true}).exec(function (err,products) {
+			if (err) {
+				console.log(err);
+			}
+			var noResults = false;
+			if (products.length < 1) {
+				noResults = true;
+			}
+
+			return res.view('products',{products:products,pageHeading:"Items On Sale",noResults:noResults});
+		});
 	}
 };
