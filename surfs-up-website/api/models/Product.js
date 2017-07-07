@@ -20,6 +20,9 @@ module.exports = {
     salePrice:{
       type: 'float'
     },
+    onSale:{
+      type: 'boolean'
+    },
     thumbNailImg:{
       type: 'string'
     },

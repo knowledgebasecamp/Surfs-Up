@@ -1,12 +1,27 @@
 <div class="container details-container">
   <!-- Example row of columns -->
   <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4 product-container">
         <h3><%= product.title %></h3>
         <img src="/images/<%=product.thumbNailImg %>" alt="">
-        <div class="price">
-          $<%=product.price %>
-        </div>
+        <% if(product.onSale){ %>
+          <div >
+            Original Price:
+            <span class="originalPrice">
+              $<%=product.price %>
+            </span>
+          </div>
+          <div >
+            <span class="price sale">
+              Sale Price:
+              $<%=product.price %>
+            </span>
+          </div>
+        <% }else{ %>
+          <div class="price">
+            $<%=product.price %>
+          </div>
+        <% } %>
         <p><%=product.description %> </p>
       </div>
   </div>

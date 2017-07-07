@@ -11,12 +11,27 @@
   <!-- Example row of columns -->
   <div class="row">
     <% products.forEach(function(product){ %>
-      <div class="col-md-4">
+      <div class="col-md-4 product-container">
         <h3><%= product.title %></h3>
         <img src="/images/<%=product.thumbNailImg %>" alt="">
-        <div class="price">
-          $<%=product.price %>
-        </div>
+        <% if(product.onSale){ %>
+          <div >
+            Original Price:
+            <span class="originalPrice">
+              $<%=product.price %>
+            </span>
+          </div>
+          <div >
+            <span class="price sale">
+              Sale Price:
+              $<%=product.price %>
+            </span>
+          </div>
+        <% }else{ %>
+          <div class="price">
+            $<%=product.price %>
+          </div>
+        <% } %>
         <p><%=product.description %> </p>
         <p><a class="btn btn-secondary" href="/product/<%=product.id %>" role="button">View details »</a></p>
       </div>

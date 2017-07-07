@@ -10,16 +10,21 @@
     border-radius: 10px;
   }
 }
-
-.price {
-    font-size: 140%;
-    color: #0e6b0e;
-}
-
 .details-container{
   margin-top: 100px;
 }
 
-.product-container{
+.product-list-container{
   margin-top: 100px;
+}
+
+.product-container{
+  .price {
+      font-size: 140%;
+      color: #0e6b0e;
+  }
+  .originalPrice{
+    color: #9c0606;
+    text-decoration: line-through;
+  }
 }

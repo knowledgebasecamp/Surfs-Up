@@ -36,7 +36,8 @@ var products = [
     title:"California Board Company 8' Surfboard",
     description: "High Density EPS, 100-Percent Waterproof core, Molded in laminated wood stringers, Tri-fin system, HD Polethylene slick bottom",
     price: 249.99,
-    salePrice: null,
+    salePrice: 199.99,
+    onSale: true,
     thumbNailImg: 'board-wood.png',
     allImages: null,
     category: 'Board'
