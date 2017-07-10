@@ -36,7 +36,9 @@ module.exports.routes = {
   '/product/:product_id': 'ProductController.details',
   '/category/:category_name': 'CategoryController.index',
   '/on-sale/': 'ProductController.onSale',
-  '/search': 'ProductController.search'
+  '/search': 'SearchController.search',
+  '/search/advanced': 'SearchController.searchAdvanced',
+  '/advanced-search': 'SearchController.advanced'
 
 
   /***************************************************************************

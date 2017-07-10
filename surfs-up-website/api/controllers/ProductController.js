@@ -33,20 +33,5 @@ module.exports = {
 
 			return res.view('products',{products:products,pageHeading:"Items On Sale",noResults:noResults});
 		});
-	},
-	'search': function (req,res) {
-		var q = jsesc(req.param('q'));
-
-		Product.find({title:{'contains':q}}).exec(function (err,products) {
-			if (err) {
-				console.log(err);
-			}
-			var noResults = false;
-			if (products.length < 1) {
-				noResults = true;
-			}
-
-			return res.view('products',{products:products,pageHeading:"Search Results",noResults:noResults,searchText:req.param('q')});
-		});
-	},
+	}
 };
