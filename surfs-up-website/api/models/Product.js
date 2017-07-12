@@ -17,7 +17,7 @@ module.exports = {
     price:{
       type: 'float'
     },
-    salePrice:{
+    originalPrice:{
       type: 'float'
     },
     onSale:{

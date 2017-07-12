@@ -27,7 +27,6 @@ var products = [
     title: 'Sticky Bumps Stand Up Paddle Grip Wax',
     description: 'Tacky Paddle Wax, Applies to handle and shaft of paddle Creates a secure bond between you and your paddle for better power transfer Prevents paddle twist,Dry grippy formula does not transfer to hands,Comes in White or Black,',
     price: 5.99,
-    salePrice: null,
     thumbNailImg: 'sticky-wax-paddle.png',
     allImages: null,
     category: 'Wax'
@@ -35,8 +34,8 @@ var products = [
   {
     title:"California Board Company 8' Surfboard",
     description: "High Density EPS, 100-Percent Waterproof core, Molded in laminated wood stringers, Tri-fin system, HD Polethylene slick bottom",
-    price: 249.99,
-    salePrice: 199.99,
+    price: 199.99,
+    originalPrice: 249.99,
     onSale: true,
     thumbNailImg: 'board-wood.png',
     allImages: null,
@@ -45,8 +44,8 @@ var products = [
   {
     title: 'Sticky Bumps Cool/cold Wax Single Bar',
     description: 'fresh from the factory, original formula, cool-cold formula for water below 68 degrees, made in the USA',
-    price: 3.99,
-    salePrice: 1.99,
+    price: 1.99,
+    originalPrice: 3.99,
     onSale: true,
     thumbNailImg: 'sticky-wax.png',
     allImages: null,

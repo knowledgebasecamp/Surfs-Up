@@ -22,7 +22,19 @@ module.exports = {
 		});
 	},
 	'searchAdvanced':function (req,res) {
-		Product.find().exec(function (err,products) {
+		var allParams = req.allParams();
+		var searchOptions = {};
+
+		allParams.title !== "" ? searchOptions.title = {'contains':allParams.title}:null;
+		if (allParams.price !== "*") {
+			var prices = [allParams.price.split(' - ')[0],allParams.price.split(' - ')[1]];
+			searchOptions.price = {'>':prices[0],'<':prices[1]};
+		}
+
+		allParams.category !== "*" ? searchOptions.category = allParams.category:null;
+		allParams.onSale === "on" ? searchOptions.onSale = true:null;
+		console.log(searchOptions);
+		Product.find(searchOptions).exec(function (err,products) {
 			if (err) {
 				console.log(err);
 			}
