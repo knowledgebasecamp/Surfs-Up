@@ -18,7 +18,13 @@ module.exports.bootstrap = function(cb) {
       console.log(err);
     }
     console.log(addedProducts);
-    cb();
+    User.create(users).exec(function (err,addedUsers) {
+      if (err) {
+        console.log(err);
+      }
+      console.log(addedUsers);
+      cb();
+    });
   });
 };
 
@@ -60,3 +66,24 @@ var products = [
   //   allImages: ,
   // },
 ];
+
+var users = [
+    {
+        userName:'Tyler',
+        password: 'password',
+        email: 'test@domain.com',
+        role: 'admin'
+    },
+    {
+        userName:'John',
+        password: 'password2',
+        email: 'test2@domain.com',
+        role: 'user'
+    },
+    {
+        userName:'Jill',
+        password: 'password8',
+        email: 'test12@domain.com',
+        role: 'admin'
+    },
+]
