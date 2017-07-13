@@ -39,7 +39,9 @@ module.exports.routes = {
   '/search': 'SearchController.search',
   '/search/advanced': 'SearchController.searchAdvanced',
   '/advanced-search': 'SearchController.advanced',
-  '/admin': 'AdminController.index'
+  '/admin': 'AdminController.index',
+  'POST /admin/login': 'AdminController.login',
+  '/admin/dashboard': 'AdminController.dashboard',
 
 
   /***************************************************************************
