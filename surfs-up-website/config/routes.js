@@ -38,7 +38,8 @@ module.exports.routes = {
   '/on-sale/': 'ProductController.onSale',
   '/search': 'SearchController.search',
   '/search/advanced': 'SearchController.searchAdvanced',
-  '/advanced-search': 'SearchController.advanced'
+  '/advanced-search': 'SearchController.advanced',
+  '/admin': 'AdminController.index'
 
 
   /***************************************************************************

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<div class="admin-panel">
+    <div class="container">
+      <div class="row">
+        <div class="panel-container">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <strong> Sign in to continue</strong>
+            </div>
+            <div class="panel-body">
+              <form role="form" action="/admin/login" method="POST">
+                <fieldset>
+                  <div class="row">
+                    <div class="col-sm-12 col-md-10  col-md-offset-1 ">
+                      <div class="form-group">
+                        <div class="input-group">
+                          <span class="input-group-addon">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                          </span>
+                          <input class="form-control" placeholder="Username" name="userName" type="text" autofocus>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <span class="input-group-addon">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                          </span>
+                          <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in">
+                      </div>
+                      <%if(typeof flash !== 'undefined'){ %>
+                          <%if(flash.err){%>
+                              <div class="alert alert-danger">
+                              <span class="glyphicon glyphicon-exclamation-sign"></span>
+                              <%=flash.err.description%>
+                              </div>
+                          <%}%>
+                      <%}%>
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
