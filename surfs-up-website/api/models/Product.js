@@ -34,6 +34,10 @@ module.exports = {
     },
     viewCount:{
       type: 'int'
+    },
+    reviews: {
+      collection:'review',
+      via: 'product'
     }
 
   }

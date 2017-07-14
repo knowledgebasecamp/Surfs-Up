@@ -23,6 +23,7 @@
           </div>
         <% } %>
         <p><%=product.description %> </p>
+        <p><a class="btn btn-secondary" href="/product/<%=product.id %>/write-review" role="button">Write A Review »</a></p>
         <%if(authenticated){ %>
             <h3>Admin Only</h3>
             <p>View Count (<%=product.viewCount %>)</p>

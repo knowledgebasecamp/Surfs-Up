@@ -50,5 +50,18 @@ module.exports = {
 
 			return res.view('products',{products:products,pageHeading:"Items On Sale",noResults:noResults});
 		});
+	},
+	'writeReview':function (req,res) {
+		if(!req.session.authenticated){
+			req.session.flash =  {err: {
+				description: 'Please Login before you write a review'
+			}};
+			return res.redirect('/admin');
+		}else {
+			return res.view('review');
+		}
+	},
+	'postReview':function (req,res) {
+		return res.redirect('/admin');
 	}
 };
