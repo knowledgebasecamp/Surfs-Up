@@ -17,14 +17,23 @@ module.exports = {
 					return res.notFound();
 				}
 				else{
-					product.viewCount++;
-					product.save(function (err) {
-						if (err) {
-							console.log(err);
-						}
+					if (!req.session.viewedProducts) {
+						req.session.viewedProducts = [];
+					}
+					if (!req.session.viewedProducts.includes(product.id)) {
+						req.session.viewedProducts.push(product.id);
+						product.viewCount++;
+						product.save(function (err) {
+							if (err) {
+								console.log(err);
+							}
+							var userAuthenticated = req.session.authenticated || false;
+							return res.view('product',{product:product,authenticated:userAuthenticated});
+						});
+					}else {
 						var userAuthenticated = req.session.authenticated || false;
 						return res.view('product',{product:product,authenticated:userAuthenticated});
-					});
+					}
 				}
 		});
 
