@@ -16,8 +16,16 @@ module.exports = {
 				if (!product) {
 					return res.notFound();
 				}
-
-				return res.view('product',{product:product});
+				else{
+					product.viewCount++;
+					product.save(function (err) {
+						if (err) {
+							console.log(err);
+						}
+						var userAuthenticated = req.session.authenticated || false;
+						return res.view('product',{product:product,authenticated:userAuthenticated});
+					});
+				}
 		});
 
 	},

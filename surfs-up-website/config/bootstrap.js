@@ -35,7 +35,8 @@ var products = [
     price: 5.99,
     thumbNailImg: 'sticky-wax-paddle.png',
     allImages: null,
-    category: 'Wax'
+    category: 'Wax',
+    viewCount:0
   },
   {
     title:"California Board Company 8' Surfboard",
@@ -45,7 +46,8 @@ var products = [
     onSale: true,
     thumbNailImg: 'board-wood.png',
     allImages: null,
-    category: 'Board'
+    category: 'Board',
+    viewCount:0
   },
   {
     title: 'Sticky Bumps Cool/cold Wax Single Bar',
@@ -55,7 +57,8 @@ var products = [
     onSale: true,
     thumbNailImg: 'sticky-wax.png',
     allImages: null,
-    category: 'Wax'
+    category: 'Wax',
+    viewCount:0
   }
   // {
   //   title:,

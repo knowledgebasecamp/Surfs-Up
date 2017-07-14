@@ -31,6 +31,10 @@ module.exports = {
     },
     category:{
       type: 'string'
+    },
+    viewCount:{
+      type: 'int'
     }
+
   }
 };

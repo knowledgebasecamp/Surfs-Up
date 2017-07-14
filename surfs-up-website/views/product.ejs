@@ -23,6 +23,10 @@
           </div>
         <% } %>
         <p><%=product.description %> </p>
+        <%if(authenticated){ %>
+            <h3>Admin Only</h3>
+            <p>View Count (<%=product.viewCount %>)</p>
+        <%}%>
       </div>
   </div>
 </div>
