@@ -52,13 +52,20 @@ module.exports = {
 		});
 	},
 	'writeReview':function (req,res) {
+		var productId = req.param('product_id');
+
 		if(!req.session.authenticated){
 			req.session.flash =  {err: {
 				description: 'Please Login before you write a review'
 			}};
 			return res.redirect('/admin');
 		}else {
-			return res.view('review');
+			Product.findOne({id:productId}).exec(function (err,product) {
+				if (err) {
+					console.log(err);
+				}
+				return res.view('review',{product:product});
+			});
 		}
 	},
 	'postReview':function (req,res) {
