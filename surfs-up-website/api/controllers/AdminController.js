@@ -45,7 +45,7 @@ module.exports = {
 				var now = new Date();
 				var expiry = new Date(now.getTime() + (2*60*60*1000));
 				console.log(expiry);
-				req.session.cookie._expires = expiry;
+				req.session.cookie.maxAge = expiry;
 				return res.redirect('/admin/dashboard/');
 			}else {
 				return res.redirect('/admin');
