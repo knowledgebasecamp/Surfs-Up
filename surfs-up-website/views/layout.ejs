@@ -64,6 +64,9 @@
             <input class="form-control mr-sm-2" name='q' type="text" placeholder="Search">
           <% } %>
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <% if(typeof session.user !== 'undefined') { %>
+                <a class="btn btn-outline-primary my-2 my-sm-0" href="/admin/logout"> Logout</a>
+          <%} %>
         </form>
       </div>
     </nav>

@@ -58,6 +58,16 @@ module.exports = {
 
 		});
 	},
+	'logout': function(req, res) {
+		req.session.destroy(function(err) {
+			if (err) {
+				console.log(err);
+			}
+			 setTimeout(function(){
+				 return res.redirect('/admin/dashboard');
+			 }, 500);
+		});
+	},
 	'dashboard':function (req,res) {
 		return res.view('dashboard');
 	}
