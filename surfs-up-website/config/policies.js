@@ -31,7 +31,8 @@ module.exports.policies = {
       'dashboard':'sessionAuth'
   },
   ProductController:{
-      'postReview':'sessionAuth'
+      'postReview':'sessionAuth',
+      'writeReview':'sessionAuth'
   },
 
   /***************************************************************************

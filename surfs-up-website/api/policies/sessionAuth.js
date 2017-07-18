@@ -14,14 +14,25 @@ module.exports = function(req, res, next) {
   if (req.session.authenticated) {
     return next();
   }
+  var errDescription = 'Please Login before continuing';
+  // write review route
+  if (req.url.indexOf('/write-review') !== -1) {
+      errDescription = 'Please Login before you write a review';
+  }
 
   // User is not allowed
   // (default res.forbidden() behavior can be overridden in `config/403.js`)
+  if (req.method === "POST" || req.method === "PUT") {
+    return res.forbidden('You are not permitted to perform this action.');
+  }
+
+  // User is not allowed
+  // return user to this url
   req.session.flash =  {err: {
-    description: 'Please Login before continuing'
+    description: errDescription
   }};
   req.session.returnUrl = req.url;
   console.log(req.session);
   return res.redirect('/admin');
-  // return res.forbidden('You are not permitted to perform this action.');
+
 };

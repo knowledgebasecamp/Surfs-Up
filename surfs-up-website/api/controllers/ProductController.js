@@ -53,21 +53,13 @@ module.exports = {
 	},
 	'writeReview':function (req,res) {
 		var productId = req.param('product_id');
+		Product.findOne({id:productId}).exec(function (err,product) {
+			if (err) {
+				console.log(err);
+			}
+			return res.view('review',{product:product});
+		});
 
-		if(!req.session.authenticated){
-			req.session.flash =  {err: {
-				description: 'Please Login before you write a review'
-			}};
-			req.session.returnUrl = req.url;
-			return res.redirect('/admin');
-		}else {
-			Product.findOne({id:productId}).exec(function (err,product) {
-				if (err) {
-					console.log(err);
-				}
-				return res.view('review',{product:product});
-			});
-		}
 	},
 	'postReview':function (req,res) {
 		return res.redirect('/admin');
