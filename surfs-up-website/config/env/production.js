@@ -21,6 +21,10 @@ module.exports = {
   //   connection: 'someMysqlServer'
   // },
 
+  autoreload:{
+      active:false
+  },
+
   /***************************************************************************
    * Set the port in the production environment to 80                        *
    ***************************************************************************/
