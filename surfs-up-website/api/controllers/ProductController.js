@@ -58,6 +58,7 @@ module.exports = {
 			req.session.flash =  {err: {
 				description: 'Please Login before you write a review'
 			}};
+			req.session.returnUrl = req.url;
 			return res.redirect('/admin');
 		}else {
 			Product.findOne({id:productId}).exec(function (err,product) {

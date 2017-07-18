@@ -14,6 +14,7 @@ module.exports = {
 	},
 	'login':function (req,res) {
 		var loginInfo = req.params.all();
+		var returnUrl = req.session.returnUrl;
 		req.session.flash = {};
 
 		// confirm userName and password have been sent
@@ -46,6 +47,10 @@ module.exports = {
 				var expiry = new Date(now.getTime() + (2*60*60*1000));
 				console.log(expiry);
 				req.session.cookie.maxAge = expiry;
+				if (returnUrl) {
+					req.session.returnUrl = null;
+					return res.redirect(returnUrl);
+				}
 				return res.redirect('/admin/dashboard/');
 			}else {
 				return res.redirect('/admin');
