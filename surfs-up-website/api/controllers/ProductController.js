@@ -9,7 +9,7 @@ module.exports = {
 	'details':function (req,res) {
 		var productId = req.param('product_id');
 
-		Product.findOne({id:productId}).exec(function (err,product) {
+		Product.findOne({id:productId}).populate('reviews').exec(function (err,product) {
 				if (err) {
 					console.log(err);
 				}
@@ -62,6 +62,20 @@ module.exports = {
 
 	},
 	'postReview':function (req,res) {
-		return res.redirect('/admin');
+		var reviewData = req.params.all();
+		Product.findOne({id:reviewData.product_id}).populate('reviews').exec(function (err,product) {
+			if (err) {
+				console.log(err);
+			}
+			delete reviewData.product_id;
+			reviewData.product = product;
+			Review.create(reviewData).exec(function (err,review) {
+				if (err) {
+					console.log(err);
+				}
+				return res.redirect('product/'+ product.id);
+			});
+
+		});
 	}
 };
