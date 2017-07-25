@@ -2,7 +2,7 @@
   <!-- Example row of columns -->
   <div class="row">
       <div class="col-md-4 product-container">
-        <h3><%= product.title %></h3>
+        <h2><%= product.title %></h2>
         <img src="/images/<%=product.thumbNailImg %>" alt="">
         <% if(product.onSale){ %>
           <div >
@@ -24,7 +24,25 @@
         <% } %>
         <p><%=product.description %> </p>
         <p><a class="btn btn-secondary" href="/product/<%=product.id %>/write-review" role="button">Write A Review »</a></p>
-        <p>Review Count <%= product.reviews.length %></p>
+        <div class="row">
+            <% if(typeof product.reviews !== 'undefined' && product.reviews.length > 0){ %>
+              <h2>Reviews</h2>
+            <% }%>
+            <% product.reviews.forEach(function(review){ %>
+                <div class="col-xs-12">
+                    <h5>
+                        <%= review.title %>
+                        <span class="starRating">
+                            <% for(var i = 0;i<review.starRating;i++){ %>
+                                &#xf005;
+                            <%} %>
+                        </span>
+                    </h5>
+                    <p><%= review.description %></p>
+                </div>
+            <%})%>
+        </div>
+
         <%if(authenticated){ %>
             <h3>Admin Only</h3>
             <p>View Count (<%=product.viewCount %>)</p>
