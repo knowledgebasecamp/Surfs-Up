@@ -29,7 +29,8 @@ module.exports.policies = {
   // '*': true,
   AdminController:{
       'dashboard':'sessionAuth',
-      'logout': 'sessionAuth'
+      'logout': 'sessionAuth',
+      'productList': 'sessionAuth'
   },
   ProductController:{
       'postReview':'sessionAuth',

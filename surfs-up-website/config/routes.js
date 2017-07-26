@@ -43,6 +43,7 @@ module.exports.routes = {
   'POST /admin/login': 'AdminController.login',
   '/admin/logout': 'AdminController.logout',
   '/admin/dashboard': 'AdminController.dashboard',
+  '/admin/products': 'AdminController.productList',
   'POST /product/:product_id/post-review': 'ProductController.postReview',
   '/product/:product_id/write-review': 'ProductController.writeReview',
 

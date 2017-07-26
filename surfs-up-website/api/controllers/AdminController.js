@@ -70,6 +70,14 @@ module.exports = {
 	},
 	'dashboard':function (req,res) {
 		return res.view('dashboard');
+	},
+	productList:function (req,res) {
+		Product.find().populate('reviews').exec(function (err,allProducts) {
+			if (err) {
+				console.log(err);
+			}
+			return res.view('productList',{products:allProducts})
+		});
 	}
 
 };

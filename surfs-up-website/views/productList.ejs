@@ -1,0 +1,32 @@
+<div class="fluid-container list-container">
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Thumb Nail</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>On Sale</th>
+        <th>Category</th>
+        <th>Review Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% products.forEach(function(product){ %>
+          <tr>
+            <td><img class="thumbNail" src="/images/<%=product.thumbNailImg %>" alt=""></td>
+            <td><%= product.title %></td>
+            <td><%= product.description %></td>
+            <td>$<%= product.price %></td>
+            <td>
+              <%if(product.onSale){%>
+                  <i class="fa fa-check" style="color:green" aria-hidden="true"></i>
+              <%}%>
+            </td>
+            <td><%= product.category%></td>
+            <td><%= product.reviews.length %></td>
+          </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

@@ -14,7 +14,12 @@
 .details-container , .product-list-container , .search-container{
   margin-top: 100px;
 }
-
+.list-container{
+  margin-top: 60px;
+  .thumbNail{
+      width: 100px;
+  }
+}
 .product-container{
   .price {
       font-size: 140%;
