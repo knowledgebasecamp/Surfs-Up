@@ -5,6 +5,7 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 var CryptoJS = require('crypto-js');
+ fs = require('fs-extra');
 
 module.exports = {
 	'index':function (req,res) {
@@ -83,7 +84,49 @@ module.exports = {
 	   return res.view('addProduct');
    	},
 	createProduct:function (req,res) {
-		return res.redirect('admin/products');
+		var productData = req.params.all();
+
+		uploadImage(req,'thumbNailImg',function (photoName) {
+			productData.thumbNailImg = photoName;
+			uploadImage(req,"productPhotos",function (photoNames) {
+				productData.allPhotos = photoNames;
+				Product.create(productData).exec(function (err,product) {
+					if (err) {
+						console.log(err);
+					}
+					return res.redirect('admin/products');
+				});
+			});
+		});
 	}
 
 };
+
+function uploadImage(req,imgFormName,cb) {
+  var fileNames = [];
+
+  req.file(imgFormName).upload(function onUploadComplete(err, uploadedFiles) {
+	  // copy each image to the assets folder to ensure it is saved
+	  if (err) { sails.log('error:', err); }
+	  if (!uploadedFiles) {
+		  cb();
+	  }
+
+	  uploadedFiles.forEach(function (file) {
+		  var splitFileName = file.fd.split('\\');
+		  var fileName = splitFileName[splitFileName.length -1];
+		  fileNames.push(fileName);
+		  fs.copy(file.fd, 'assets/images/'+fileName, function (err) {
+			  if (err) { return sails.log('error:', err); }
+		  });
+	  });
+
+	  if (fileNames.length === 1) {
+		  cb(fileNames[0]);
+	  }else {
+		  cb(fileNames);
+	  }
+
+  });
+
+}
