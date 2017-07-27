@@ -78,6 +78,12 @@ module.exports = {
 			}
 			return res.view('productList',{products:allProducts})
 		});
+	},
+	addProduct:function (req,res) {
+	   return res.view('addProduct');
+   	},
+	createProduct:function (req,res) {
+		return res.redirect('admin/products');
 	}
 
 };
