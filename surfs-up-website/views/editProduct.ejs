@@ -21,7 +21,12 @@
 
     <div class="form-check">
       <label class="form-check-label">
-        <input id="onSaleCheck" type="checkbox" class="form-check-input" name="onSale" checked="<%= product.onSale %>">
+        <% if(product.onSale){ %>
+            <input id="onSaleCheck" type="checkbox" class="form-check-input" name="onSale" checked>
+        <%}else{ %>
+            <input id="onSaleCheck" type="checkbox" class="form-check-input" name="onSale">
+        <%} %>
+
         On Sale
       </label>
     </div>

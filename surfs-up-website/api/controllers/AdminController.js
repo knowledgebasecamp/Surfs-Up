@@ -110,7 +110,26 @@ module.exports = {
 		});
    	},
     updateProduct:function (req,res) {
-        return res.redirect('admin/products');
+        var productData = req.params.all();
+        if (productData.onSale === "on") {
+            productData.onSale = true;
+        }else {
+            productData.onSale = false;
+        }
+        console.log(productData);
+
+        uploadImage(req,'thumbNailImg',function (photoName) {
+            productData.thumbNailImg = photoName;
+            uploadImage(req,"productPhotos",function (photoNames) {
+                productData.allPhotos = photoNames;
+                Product.update(productData.id,productData).exec(function (err,product) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    return res.redirect('admin/products');
+                });
+            });
+        });
     }
 
 };
