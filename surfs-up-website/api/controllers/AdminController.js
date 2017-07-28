@@ -98,7 +98,20 @@ module.exports = {
 				});
 			});
 		});
-	}
+	},
+    editProduct:function (req,res) {
+        var productId = req.param('product_id');
+
+        Product.findOne({id:productId}).exec(function (err,product) {
+			if (err) {
+				console.log(err);
+			}
+			return res.view('editProduct',{product:product});
+		});
+   	},
+    updateProduct:function (req,res) {
+        return res.redirect('admin/products');
+    }
 
 };
 

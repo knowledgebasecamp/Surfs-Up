@@ -33,6 +33,8 @@ module.exports.policies = {
       'productList': 'sessionAuth',
       'addProduct': 'sessionAuth',
       'createProduct': 'sessionAuth',
+      'editProduct': 'sessionAuth',
+      'updateProduct': 'sessionAuth'
   },
   ProductController:{
       'postReview':'sessionAuth',

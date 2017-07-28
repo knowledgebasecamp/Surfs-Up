@@ -10,6 +10,7 @@
         <th>On Sale</th>
         <th>Category</th>
         <th>Review Count</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -26,6 +27,11 @@
             </td>
             <td><%= product.category%></td>
             <td><%= product.reviews.length %></td>
+            <td>
+                <a class="btn btn-outline-warning my-2 my-sm-0" href="/admin/editProduct/<%=product.id %>">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                </a>
+            </td>
           </tr>
       <% }) %>
     </tbody>

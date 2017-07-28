@@ -1,0 +1,72 @@
+<div class="container details-container">
+  <h2>Edit Product</h2>
+  <form action="/admin/updateProduct" method="post" enctype="multipart/form-data">
+
+     <input type="text" class="hidden-xs-up" name="id" value="<%= product.id %>">
+
+    <div class="form-group">
+      <label for="titleInput">Title</label>
+      <input type="text" class="form-control" id="titleInput" name="title" value="<%= product.title %>">
+    </div>
+
+    <div class="form-group">
+      <label for="titleInput">Description</label>
+      <textarea class="form-control" id="descriptionInput" name="description"><%= product.description %></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="titleInput">Price</label>
+      <input type="number" class="form-control" name="price"  step="0.01" value="<%= product.price %>">
+    </div>
+
+    <div class="form-check">
+      <label class="form-check-label">
+        <input id="onSaleCheck" type="checkbox" class="form-check-input" name="onSale" checked="<%= product.onSale %>">
+        On Sale
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="titleInput">Original Price</label>
+      <input type="number" disabled class="form-control" id="originalPriceInput" name="originalPrice" step="0.01" value="<%= product.originalPrice %>" >
+    </div>
+
+    <div class="form-group">
+      <label for="categorySelect">Category</label>
+      <select class="form-control" id="categorySelect" name="category" value="<%= product.category %>">
+        <option value="wax" >Wax</option>
+        <option value="suit">Suit</option>
+        <option value="board" >Board</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+        <label>Thumbnail Image</label>
+        <input type="file" name="thumbNailImg">
+    </div>
+
+    <div class="form-group">
+            <label>Product Photos</label>
+            <input type="file" name="productPhotos" multiple>
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary">update</button>
+  </form>
+</div>
+
+<script type="text/javascript">
+    init();
+$('#onSaleCheck').click(function() {
+    init();
+});
+
+function init(){
+    var checkBox = $('#onSaleCheck')[0];
+    if (!checkBox.checked) {
+        $("#originalPriceInput").val(null);
+    }
+    $("#originalPriceInput").prop('disabled', !checkBox.checked);
+}
+</script>
