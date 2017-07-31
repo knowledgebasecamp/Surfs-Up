@@ -47,7 +47,11 @@ module.exports = {
 		});
 	},
 	'advanced':function (req,res) {
-
-		return res.view('advanced-search');
+		Category.find().exec(function (err,categories) {
+			if (err) {
+				console.log(err);
+			}
+			return res.view('advanced-search',{categories:categories});
+		});
 	}
 };

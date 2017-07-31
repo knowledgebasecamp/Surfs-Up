@@ -21,9 +21,11 @@
       <label for="categorySelect">Category</label>
       <select class="form-control" id="categorySelect" name="category">
         <option value="*" >Any</option>
-        <option value="wax" >wax</option>
-        <option value="suit">suit</option>
-        <option value="board" >board</option>
+        <% categories.forEach(function (category) { %>
+            <option value="<%= category.value %>" >
+                <%= category.name %>
+            </option>
+        <% }); %>
       </select>
     </div>
 

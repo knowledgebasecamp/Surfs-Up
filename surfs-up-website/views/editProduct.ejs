@@ -39,9 +39,13 @@
     <div class="form-group">
       <label for="categorySelect">Category</label>
       <select class="form-control" id="categorySelect" name="category" value="<%= product.category %>">
-        <option value="wax" >Wax</option>
-        <option value="suit">Suit</option>
-        <option value="board" >Board</option>
+          <%
+              for ( var i = 0; i < categories.length; i++ )
+              {
+                  var selected = ( product.category == categories[i].value ) ? "selected" : "";
+                  %><option value="<%=categories[ i ].value %>" <%=selected %>> <%=categories[ i ].name %></option><%
+              }
+              %>
       </select>
     </div>
 

@@ -106,7 +106,12 @@ module.exports = {
 			if (err) {
 				console.log(err);
 			}
-			return res.view('editProduct',{product:product});
+            Category.find().exec(function (err,categories) {
+    			if (err) {
+    				console.log(err);
+    			}
+                return res.view('editProduct',{product:product,categories:categories});
+            });
 		});
    	},
     updateProduct:function (req,res) {

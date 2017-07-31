@@ -23,7 +23,13 @@ module.exports.bootstrap = function(cb) {
         console.log(err);
       }
       console.log(addedUsers);
-      cb();
+      Category.create(categories).exec(function (err,addedCategories) {
+        if (err) {
+          console.log(err);
+        }
+        console.log(addedCategories);
+        cb();
+      });
     });
   });
 };
@@ -35,7 +41,7 @@ var products = [
     price: 5.99,
     thumbNailImg: 'sticky-wax-paddle.png',
     allImages: null,
-    category: 'Wax',
+    category: 'wax',
     viewCount:0
   },
   {
@@ -46,7 +52,7 @@ var products = [
     onSale: true,
     thumbNailImg: 'board-wood.png',
     allImages: null,
-    category: 'Board',
+    category: 'board',
     viewCount:0
   },
   {
@@ -57,7 +63,7 @@ var products = [
     onSale: true,
     thumbNailImg: 'sticky-wax.png',
     allImages: null,
-    category: 'Wax',
+    category: 'wax',
     viewCount:0
   }
   // {
@@ -89,4 +95,10 @@ var users = [
         email: 'test12@domain.com',
         role: 'admin'
     },
-]
+];
+
+var categories = [
+{name:'Wax',value:'wax'},
+{name:'Suit',value:'suit'},
+{name:'Board',value:'board'}
+];
