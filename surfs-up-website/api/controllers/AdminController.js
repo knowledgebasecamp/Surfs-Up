@@ -135,6 +135,16 @@ module.exports = {
                 });
             });
         });
+    },
+    deleteProduct:function(req,res){
+        var productId = req.param('product_id');
+
+        Product.destroy({id:productId}).exec(function (err) {
+			if (err) {
+				console.log(err);
+			}
+            return res.redirect('admin/products');
+		});
     }
 
 };
