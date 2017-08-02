@@ -21,5 +21,13 @@ module.exports = {
 		});
 
 
+	},
+	list:function (req,res) {
+		Category.find().exec(function (err,allCategories) {
+			if (err) {
+				console.log(err);
+			}
+			return res.view('categoryList',{categories:allCategories})
+		});
 	}
 };

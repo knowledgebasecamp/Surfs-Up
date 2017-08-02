@@ -41,6 +41,9 @@ module.exports.policies = {
       'postReview':'sessionAuth',
       'writeReview':'sessionAuth'
   },
+  CategoryController:{
+      'list':'sessionAuth',
+  }
 
   /***************************************************************************
   *                                                                          *

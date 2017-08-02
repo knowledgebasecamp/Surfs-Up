@@ -54,6 +54,8 @@ module.exports.routes = {
 
   '/product/:product_id/write-review': 'ProductController.writeReview',
 
+  '/admin/categories': 'CategoryController.list'
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
