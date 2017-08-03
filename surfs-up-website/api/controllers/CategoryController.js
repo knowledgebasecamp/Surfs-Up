@@ -29,5 +29,19 @@ module.exports = {
 			}
 			return res.view('categoryList',{categories:allCategories})
 		});
-	}
+	},
+	addCategory:function (req,res) {
+	   return res.view('addCategory');
+	},
+	createCategory:function (req,res) {
+		var categoryData = req.params.all();
+
+		Category.create(categoryData).exec(function (err,category) {
+			if (err) {
+				console.log(err);
+			}
+			return res.redirect('admin/categories');
+		});
+
+	},
 };

@@ -54,7 +54,9 @@ module.exports.routes = {
 
   '/product/:product_id/write-review': 'ProductController.writeReview',
 
-  '/admin/categories': 'CategoryController.list'
+  '/admin/categories': 'CategoryController.list',
+  '/admin/addCategory': 'CategoryController.addCategory',
+  'POST /admin/createCategory': 'CategoryController.createCategory',
 
   /***************************************************************************
   *                                                                          *

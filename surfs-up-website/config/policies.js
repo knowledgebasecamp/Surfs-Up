@@ -35,7 +35,9 @@ module.exports.policies = {
       'createProduct': 'sessionAuth',
       'editProduct': 'sessionAuth',
       'updateProduct': 'sessionAuth',
-      'deleteProduct': 'sessionAuth'
+      'deleteProduct': 'sessionAuth',
+      'addCategory': 'sessionAuth',
+      'createCategory': 'sessionAuth'
   },
   ProductController:{
       'postReview':'sessionAuth',
