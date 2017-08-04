@@ -37,7 +37,6 @@ module.exports.policies = {
       'updateProduct': 'sessionAuth',
       'deleteProduct': 'sessionAuth',
       'addCategory': 'sessionAuth',
-      'createCategory': 'sessionAuth'
   },
   ProductController:{
       'postReview':'sessionAuth',
@@ -45,6 +44,8 @@ module.exports.policies = {
   },
   CategoryController:{
       'list':'sessionAuth',
+      'createCategory': 'sessionAuth',
+      'deleteCategory': 'sessionAuth',
   }
 
   /***************************************************************************

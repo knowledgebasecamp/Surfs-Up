@@ -57,6 +57,7 @@ module.exports.routes = {
   '/admin/categories': 'CategoryController.list',
   '/admin/addCategory': 'CategoryController.addCategory',
   'POST /admin/createCategory': 'CategoryController.createCategory',
+  'POST /admin/deleteCategory': 'CategoryController.deleteCategory',
 
   /***************************************************************************
   *                                                                          *

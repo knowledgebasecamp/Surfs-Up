@@ -44,4 +44,14 @@ module.exports = {
 		});
 
 	},
+	deleteCategory:function(req,res){
+		var categoryId = req.param('category_id');
+
+		Category.destroy({id:categoryId}).exec(function (err) {
+			if (err) {
+				console.log(err);
+			}
+			return res.redirect('admin/categories');
+		});
+	}
 };
